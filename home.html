@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Night Invitation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./bilder/overwatch_logo.png" alt="Overwatch Logo">
+            <h1>Overwatch Game Night</h1>
+        </div>
+        <p class="description">Gear up for an epic night of fun, friends, and fierce Overwatch action! Don’t miss it. I'm gathering 5 people to 5 stack</p>
+        
+        <div class="details">
+            <form id="game-night-form">
+                <p><strong>Name:</strong>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" value="">
+                </p>
+                <p><strong>Date:</strong>
+                    <input type="text" id="date" name="date" placeholder="Enter the date  (Whenever you prefer to play)" value="">
+                </p>
+                <p><strong>Time:</strong>
+                    <input type="text" id="time" name="time" placeholder="Enter the time  (Whenever you prefer to play)" value="">
+                </p>
+                <p><strong>Where:</strong> Online (Discord)</p>
+                <button type="submit" class="button">Save</button>
+            </form>
+
+            <h3>How to Save Your Game Night</h3>
+            <p>Enter your name, date, and time, then click "Save" to store your game night details. The information will be saved and displayed below, just select after your prefrences then we'll find a date togehter.</p>
+            
+            <h3>Saved Game Nights</h3>
+            <div id="saved-game-nights"></div>
+        </div>
+        
+        <a href="last.html" class="button">Join</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

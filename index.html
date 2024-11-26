@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelope Animation</title>
+    <link rel="stylesheet" href="button.css">
+</head>
+<body>
+    <div class="wrapper" onclick="openEnvelopeAndRedirect()">
+        <div class="lid one"></div>
+        <div class="lid two"></div>
+        <div class="envelope"></div>
+        <div class="letter">
+            <p>Invitation</p>
+        </div>
+    </div>
+
+    <div class="heading">
+        <h1>Click it!</h1>
+    </div>
+
+    <script>
+        function openEnvelopeAndRedirect() {
+            // Trigger envelope opening animation on click
+            const wrapper = document.querySelector('.wrapper');
+
+            // Trigger hover effects programmatically
+            wrapper.classList.add('open');
+
+            // Redirect after the animation completes (adjust timing as needed)
+            setTimeout(() => {
+                window.location.href = "home.html"; // Replace with your desired page URL
+            }, 1500); // Wait for the animation to finish before redirecting
+        }
+    </script>
+</body>
+</html>

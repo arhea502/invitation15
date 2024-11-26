@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: #c5c5c5;
+}
+
+.heading {
+  position: absolute;
+  top: 200px;
+  font-size: 30px;
+  color: #f39a47;
+  text-align: center;
+}
+
+.wrapper {
+  height: 220px;
+  width: 320px;
+  background-color: #e68b33;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+/* Lid */
+.lid {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: transform 0.25s linear;
+}
+
+/* Lid when closed */
+.lid.one {
+  border-top: 100px solid #e68b33;
+  transform: rotateX(0deg);
+  z-index: 3;
+  transition-delay: 0.75s;
+}
+
+/* Lid when opened */
+.lid.two {
+  border-top: 100px solid #e68b33;
+  transform: rotateX(90deg);
+  z-index: 1;
+  transition-delay: 0.5s;
+}
+
+.envelope {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 100px solid transparent;
+  border-right: 150px solid #5a5c5f;
+  border-bottom: 100px solid #494b4d;
+  border-left: 150px solid #5a5c5f;
+  z-index: 3;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 15px;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.letter p {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 30px;
+  color: #3B4049;
+}
+
+/* Hover Styles - We trigger this class when clicking */
+.wrapper.open .lid.one {
+    transform: rotateX(90deg);
+    transition-delay: 0s;
+}
+
+.wrapper.open .lid.two {
+    transform: rotateX(180deg);
+    transition-delay: 0.25s;
+}
+
+.wrapper.open .letter {
+  transform: translateY(-50px);
+  transition-delay: 0.5s;
+}
+
+/* Responsive Design for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+  .wrapper {
+    width: 300px; /* Adjust envelope size */
+    height: 180px;
+  }
+
+  .lid.one, .lid.two {
+    position: absolute;
+    left: 0%;
+    border-top: 80px solid #e68b33;
+  }
+
+  .envelope {
+    border-top: 80px solid transparent;
+    border-right: 120px solid #5a5c5f;
+    border-bottom: 80px solid #494b4d;
+    border-left: 120px solid #5a5c5f;
+  }
+
+  .letter {
+    width: 90%;
+    height: 90%;
+    border-radius: 12px;
+  }
+
+  .letter p {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .heading {
+    font-size: 30px;
+    top: 130px;
+  }
+}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Night Team</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Team Overwatch</h1>
+        </div>
+        <p class="description">Here is the list of players for our upcoming Overwatch game night!</p>
+        
+        <div class="details">
+            <h3>Team Members:</h3>
+            <ul id="teamList">
+                <li><span class="player-name">Player 1</span> - Me (Ari)</li>
+                <li><span class="player-name">Player 2</span> - Ivy? (If you're in ig)</li>
+                <li><span class="player-name">Player 3</span> - ur +1 (He'd be with you as well I suppose)</li>
+                <li><span class="player-name">Player 4</span> - (Name)</li>
+                <li><span class="player-name">Player 5</span> - (Name)</li>
+            </ul>
+        </div>
+        
+        <div class="add-player">
+            <h3>Add Your Name to the Team:</h3>
+            <input type="text" id="newPlayerName" placeholder="Enter your name" />
+            <button class="button" onclick="addPlayer()">Add Player</button>
+        </div>
+        
+        <a href="home.html" class="button">Back to Invitation</a>
+    </div>
+
+    <script>
+        // Load previously saved names from localStorage
+        window.onload = function() {
+            const savedPlayers = JSON.parse(localStorage.getItem('players'));
+            if (savedPlayers && savedPlayers.length > 0) {
+                savedPlayers.forEach(player => {
+                    addPlayerToList(player);
+                });
+            }
+        };
+
+        // Function to add player to the list and localStorage
+        function addPlayer() {
+            const newPlayerName = document.getElementById('newPlayerName').value.trim();
+            if (newPlayerName === '') {
+                alert('Please enter a name');
+                return;
+            }
+
+            // Add the new player to the list
+            addPlayerToList(newPlayerName);
+
+            // Save the updated list in localStorage
+            const currentPlayers = JSON.parse(localStorage.getItem('players')) || [];
+            currentPlayers.push(newPlayerName);
+            localStorage.setItem('players', JSON.stringify(currentPlayers));
+
+            // Clear the input field
+            document.getElementById('newPlayerName').value = '';
+        }
+
+        // Function to append the player to the team list
+        function addPlayerToList(playerName) {
+            const playerList = document.getElementById('teamList');
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<span class="player-name">${playerName}</span> - (You!)`;
+            playerList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
